@@ -1,0 +1,14 @@
+def solution(s):
+    answer = []
+    word_dic = {}
+    
+    for idx, word in enumerate(list(s)):
+        if word not in word_dic:
+            answer.append(-1)
+            word_dic[word] = idx
+        else:
+            answer.append(idx - word_dic[word])
+            word_dic[word] = idx
+        
+        
+    return answer
