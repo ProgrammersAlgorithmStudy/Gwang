@@ -1,0 +1,21 @@
+def solution(number, limit, power):
+    answer = 0
+    num = 0
+    num_list = [1]
+
+    for i in range(2, number+1):
+        for j in range(1, int(i**(1/2))+1): # 약수 구하는 for문 이해하기
+            if i % j == 0:
+                num += 1
+                if (j**2) != i:
+                    num += 1
+        num_list.append(num)
+        num = 0
+        
+    for a in num_list:
+        if a > limit:
+            answer += power
+        else:
+            answer += a
+        
+    return answer
